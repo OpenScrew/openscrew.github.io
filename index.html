@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +7,8 @@
     <title>OpenScrew Foundation</title>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -17,130 +18,158 @@
         html,
         body {
             width: 100%;
-            min-height: 100%;
+            height: 100%;
         }
 
         body {
             background: #fff;
             color: #000;
+            overflow: hidden;
+
             font-family: Arial, Helvetica, sans-serif;
         }
 
         .page {
-            min-height: 100vh;
             width: 100%;
+            height: 100vh;
+
+            padding: 4vh 4vw;
 
             display: flex;
             flex-direction: column;
             justify-content: center;
-
-            padding: 4vw;
         }
 
-        /* ─────────────────────────────
-           MASSIVE TYPE
-        ───────────────────────────── */
+
+        /* =================================
+           WORK IN PROGRESS
+        ================================= */
 
         .wip {
             width: 100%;
 
-            font-family:
-                Impact,
-                "Arial Black",
-                Arial,
-                sans-serif;
+            font-family: "Anton", Impact, sans-serif;
 
-            font-size: clamp(
-                80px,
-                15.2vw,
-                250px
-            );
+            font-size: clamp(90px, 16vw, 270px);
 
-            font-weight: 900;
-            line-height: 0.78;
+            line-height: 0.86;
 
-            letter-spacing: -0.075em;
+            letter-spacing: -0.025em;
 
             text-transform: uppercase;
 
+            transform: scaleY(1.22);
+            transform-origin: center;
+
+            user-select: none;
+        }
+
+        .line {
+            display: block;
             white-space: nowrap;
         }
 
-        .wip .line {
-            display: block;
+        .line.work {
+            text-align: left;
         }
 
-        .wip .line:first-child {
-            margin-left: -0.25vw;
+        .line.progress {
+            text-align: right;
         }
 
-        .wip .line:last-child {
-            margin-left: 7vw;
-        }
 
-        /* ─────────────────────────────
-           FOUNDATION NAME
-        ───────────────────────────── */
+        /* =================================
+           FOUNDATION
+        ================================= */
 
-        .foundation {
-            margin-top: 4.5vw;
+        .bottom {
+            width: 100%;
 
-            padding-top: 1.2vw;
+            margin-top: 7vh;
 
-            border-top: 3px solid #000;
+            padding-top: 15px;
+
+            border-top: 2px solid #000;
 
             display: flex;
-            justify-content: space-between;
             align-items: baseline;
+            justify-content: space-between;
+        }
 
-            font-size: clamp(16px, 2vw, 30px);
+        .foundation {
+            font-family: Arial, Helvetica, sans-serif;
+
+            font-size: clamp(18px, 2vw, 30px);
 
             font-weight: 700;
 
-            letter-spacing: -0.035em;
-            text-transform: uppercase;
+            letter-spacing: -0.045em;
         }
 
-        .foundation span:last-child {
+        .year {
             font-family: monospace;
 
             font-size: 11px;
 
-            font-weight: 500;
-
             letter-spacing: 0.08em;
         }
 
-        /* ─────────────────────────────
+
+        /* =================================
+           DESKTOP HEIGHT ADJUSTMENT
+        ================================= */
+
+        @media (min-width: 900px) and (min-height: 700px) {
+
+            .wip {
+                font-size: min(16vw, 250px);
+                transform: scaleY(1.28);
+            }
+
+            .bottom {
+                margin-top: 8vh;
+            }
+        }
+
+
+        /* =================================
            MOBILE
-        ───────────────────────────── */
+        ================================= */
 
         @media (max-width: 700px) {
 
             .page {
-                padding: 6vw 5vw;
+                padding: 5vw;
             }
 
             .wip {
                 font-size: 20vw;
-                line-height: 0.8;
+                line-height: 0.88;
 
+                white-space: normal;
+
+                transform: scaleY(1.15);
+            }
+
+            .line {
                 white-space: normal;
             }
 
-            .wip .line:first-child,
-            .wip .line:last-child {
-                margin-left: 0;
+            .line.work,
+            .line.progress {
+                text-align: left;
+            }
+
+            .bottom {
+                margin-top: 9vh;
+                padding-top: 12px;
             }
 
             .foundation {
-                margin-top: 8vw;
-                padding-top: 3vw;
-
                 font-size: 5vw;
             }
 
-            .foundation span:last-child {
+            .year {
                 display: none;
             }
         }
@@ -151,18 +180,32 @@
 
     <main class="page">
 
-        <div class="wip">
-            <div class="line">WORK IN</div>
-            <div class="line">PROGRESS</div>
-        </div>
+        <section class="wip">
 
-        <div class="foundation">
-            <span>OpenScrew Foundation</span>
-            <span>2026</span>
-        </div>
+            <div class="line work">
+                WORK IN
+            </div>
+
+            <div class="line progress">
+                PROGRESS
+            </div>
+
+        </section>
+
+
+        <footer class="bottom">
+
+            <div class="foundation">
+                OpenScrew Foundation
+            </div>
+
+            <div class="year">
+                2026
+            </div>
+
+        </footer>
 
     </main>
 
 </body>
 </html>
-```
